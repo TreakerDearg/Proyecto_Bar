@@ -1,0 +1,357 @@
+/* ================================================================
+   GLOBAL RESET
+================================================================ */
+.tn-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: #05010c;
+  overflow: hidden;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+}
+
+/* ================================================================
+   AUDIO BUTTON
+================================================================ */
+.tn-audio-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 255, 255, 0.15);
+  border: 1px solid #0ff;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 20;
+  color: #0ff;
+  transition: 0.2s ease;
+}
+
+.tn-audio-toggle:hover {
+  background: rgba(0, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+/* ================================================================
+   ORBS (NEON SPHERES)
+================================================================ */
+.tn-orb {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.45;
+  z-index: 1;
+}
+
+.orb-1 {
+  background: #ff00e1;
+  top: -60px;
+  left: -60px;
+}
+
+.orb-2 {
+  background: #00eaff;
+  bottom: -80px;
+  right: -80px;
+}
+
+/* ================================================================
+   NEON BEAMS
+================================================================ */
+.tn-beam {
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ff00e1, transparent);
+  opacity: 0.35;
+  z-index: 2;
+  filter: blur(2px);
+}
+
+.beam-left {
+  left: 5%;
+}
+
+.beam-right {
+  right: 5%;
+}
+
+/* ================================================================
+   RADIAL NEON BEHIND MAIN CARD
+================================================================ */
+.tn-radial {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 220, 0.4), transparent 70%);
+  filter: blur(90px);
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* ================================================================
+   FLOATING LINES
+================================================================ */
+.tn-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 0, 200, 0.05) 0px,
+    rgba(255, 0, 200, 0.05) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  opacity: 0.15;
+  z-index: 2;
+  animation: moveLines 10s linear infinite;
+}
+
+@keyframes moveLines {
+  from { transform: translateY(0); }
+  to { transform: translateY(12px); }
+}
+
+/* ================================================================
+   EDGE RAINBOW LIGHTS
+================================================================ */
+.tn-edge-left,
+.tn-edge-right {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0ff, #ff00e1);
+  opacity: 0.35;
+  z-index: 3;
+}
+
+.tn-edge-left {
+  left: 0;
+}
+
+.tn-edge-right {
+  right: 0;
+}
+
+/* ================================================================
+   FLOATING SYMBOLS
+================================================================ */
+.tn-float-symbol {
+  position: absolute;
+  font-size: 22px;
+  color: #ff00e1;
+  opacity: 0.27;
+  animation: floatSym 6s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+.fs1 { top: 20%; left: 12%; animation-delay: 0s; }
+.fs2 { top: 30%; right: 18%; animation-delay: 1s; }
+.fs3 { bottom: 25%; left: 18%; animation-delay: 2s; }
+.fs4 { bottom: 20%; right: 15%; animation-delay: 3s; }
+.fs5 { top: 45%; left: 45%; animation-delay: 1.5s; }
+.fs6 { bottom: 40%; right: 40%; animation-delay: 2.5s; }
+
+@keyframes floatSym {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-22px) scale(1.2); }
+}
+
+/* ================================================================
+   VHS EFFECTS
+================================================================ */
+.tn-scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: overlay;
+}
+
+.tn-vhs-flicker {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: color-dodge;
+  animation: flicker 0.07s infinite;
+  z-index: 11;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+}
+
+.tn-vhs-noise {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
+    <filter id='n'>\
+      <feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3'/>\
+    </filter>\
+    <rect width='100%' height='100%' filter='url(%23n)'/>\
+  </svg>") repeat;
+  opacity: 0.06;
+  z-index: 10;
+}
+
+/* ================================================================
+   HUD CORNERS
+================================================================ */
+.tn-corner-deco {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  z-index: 9;
+  opacity: 0.45;
+}
+
+.tl { top: 10px; left: 10px; }
+.tr { top: 10px; right: 10px; transform: scaleX(-1); }
+.bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.br { bottom: 10px; right: 10px; transform: scale(-1); }
+
+/* ================================================================
+   MAIN CARD
+================================================================ */
+.tn-card {
+  position: relative;
+  margin: 130px auto 0;
+  width: 90%;
+  max-width: 520px;
+  padding: 40px 28px;
+  background: rgba(10, 2, 22, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 200, 0.3);
+  border-radius: 16px;
+  z-index: 20;
+  box-shadow: 0 0 40px rgba(255, 0, 200, 0.2);
+}
+
+.tn-logo {
+  width: 180px;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.tn-title {
+  font-size: 34px;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #0ff, #ff00e1);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.tn-lead {
+  text-align: center;
+  opacity: 0.7;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Divider */
+.tn-divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.tn-divider span {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0ff);
+}
+
+/* Buttons */
+.tn-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.tn-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-decoration: none;
+}
+
+.tn-btn.solid {
+  background: linear-gradient(90deg, #0ff, #ff00e1);
+  color: #000;
+}
+
+.tn-btn.solid:hover {
+  transform: scale(1.07);
+}
+
+.tn-btn.outline {
+  border: 2px solid #ff00e1;
+  color: #ff00e1;
+}
+
+.tn-btn.outline:hover {
+  background: #ff00e1;
+  color: #000;
+}
+
+/* Meta tags */
+.tn-meta {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+/* Quote */
+.tn-quote {
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+/* ================================================================
+   RETRO GRID
+================================================================ */
+.tn-grid {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+.tn-footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 20px;
+}
+
+

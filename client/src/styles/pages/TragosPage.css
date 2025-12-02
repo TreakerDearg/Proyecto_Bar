@@ -1,0 +1,200 @@
+/* ================================
+   TragosPage — Admin
+================================= */
+
+.tragos-page-content {
+  padding: 60px 20px 40px 340px; /* espacio para sidebar/navbar */
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0a25, #01010b);
+  color: #c7eaff;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+  transition: padding-left 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tragos-page-content {
+    padding-left: 20px;
+    padding-top: 140px;
+  }
+}
+
+.tragos-page-content h1 {
+  color: #00faff;
+  text-shadow: 0 0 8px #00faff, 0 0 16px #9d4bff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ================================
+   Filtros
+================================= */
+.filtros-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* modifica aquí si quieres mover más a la izquierda */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filtros-container input,
+.filtros-container select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(150,0,255,0.25);
+  background: rgba(20,20,40,0.85);
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.filtros-container input::placeholder {
+  color: #9d4bff;
+}
+
+.filtros-container input:focus,
+.filtros-container select:focus {
+  outline: none;
+  border-color: #00faff;
+  box-shadow: 0 0 12px #00faff, inset 0 0 8px #9d4bff;
+}
+
+/* ================================
+   Grid de tragos
+================================= */
+.tragos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px; /* espacio entre cards */
+}
+
+.tragos-admin-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(10,10,25,0.9);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(150,0,255,0.25);
+  box-shadow: 0 0 16px #9d4bff, inset 0 0 12px #00faff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tragos-admin-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #00faff, inset 0 0 16px #9d4bff;
+}
+
+/* ================================
+   Acciones Admin
+================================= */
+.acciones-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.acciones-admin button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 4px #00faff;
+}
+
+.btn-activar {
+  background: linear-gradient(90deg, #00ff7f, #00d4ff);
+  color: #000;
+}
+
+.btn-activar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px #00ff7f, inset 0 0 8px #00d4ff;
+}
+
+.btn-desactivar {
+  background: linear-gradient(90deg, #ff4d6d, #ff1a1a);
+  color: #fff;
+}
+
+.btn-desactivar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px #ff4d6d, inset 0 0 8px #ff1a1a;
+}
+
+.acciones-admin input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(150,0,255,0.25);
+  background: rgba(20,20,40,0.85);
+  color: #c7eaff;
+  text-shadow: 0 0 3px #00faff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.acciones-admin input::placeholder {
+  color: #9d4bff;
+}
+
+.acciones-admin input:focus {
+  outline: none;
+  border-color: #00faff;
+  box-shadow: 0 0 10px #00faff, inset 0 0 6px #9d4bff;
+}
+
+/* ================================
+   Paginación
+================================= */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(130,0,255,0.2);
+  color: #c7eaff;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00faff;
+  transition: all 0.3s ease;
+}
+
+.pagination button.active {
+  background: linear-gradient(90deg, #00faff, #9d4bff);
+  color: #fff;
+  box-shadow: 0 0 12px #00faff, 0 0 18px #9d4bff inset;
+}
+
+.pagination button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00faff, 0 0 14px #9d4bff inset;
+}
+
+/* ================================
+   Responsive
+================================= */
+@media (max-width: 768px) {
+  .tragos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .acciones-admin {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,257 @@
+/* ==========================================
+   Editar Trago — Página
+========================================== */
+.editar-trago-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* más separación entre secciones */
+  padding: 100px 20px 40px 20px; /* desplazamos todo más a la izquierda */
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0a25, #01010b);
+  color: #c7eaff;
+  font-family: "Orbitron", sans-serif;
+  box-sizing: border-box;
+  transition: padding-left 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .editar-trago-container {
+    padding-left: 20px;
+    padding-top: 140px;
+  }
+}
+
+/* ==========================================
+   Filtro
+========================================== */
+.editar-filtro {
+  display: flex;
+  justify-content: flex-start; /* alineado a la izquierda */
+  margin-bottom: 20px;
+}
+
+.editar-filtro input {
+  width: 320px; /* un poco más ancho */
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(150,0,255,0.25);
+  background: rgba(20,20,40,0.85);
+  color: #c7eaff;
+  font-size: 1rem;
+  text-shadow: 0 0 4px #00faff;
+  transition: all 0.3s ease;
+}
+
+.editar-filtro input::placeholder {
+  color: #9d4bff;
+}
+
+.editar-filtro input:focus {
+  outline: none;
+  border-color: #00faff;
+  box-shadow: 0 0 14px #00faff, inset 0 0 10px #9d4bff;
+}
+
+/* ==========================================
+   Grid/Listado de Tragos
+========================================== */
+.editar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px; /* más separación horizontal y vertical */
+  justify-items: start; /* alineado a la izquierda */
+}
+
+.editar-item {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editar-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px #00faff, 0 0 20px #9d4bff inset;
+}
+
+/* ==========================================
+   Formulario de edición
+========================================== */
+.editar-form-preview-wrapper {
+  display: flex;
+  gap: 40px; /* más espacio entre form y preview */
+  flex-wrap: wrap;
+  justify-content: flex-start; /* alineamos a la izquierda */
+}
+
+.form-editar-trago {
+  flex: 1 1 340px;
+  max-width: 420px;
+  background: rgba(10,10,25,0.95);
+  padding: 50px; /* más padding */
+  border-radius: 18px;
+  border: 1px solid rgba(150,0,255,0.25);
+  box-shadow: 0 0 28px #00faff, inset 0 0 20px #9d4bff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-editar-trago input,
+.form-editar-trago textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(200,150,255,0.3);
+  background: rgba(20,20,40,0.85);
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-editar-trago textarea {
+  resize: vertical;
+  min-height: 120px; /* más espacio para preparación */
+}
+
+.form-editar-trago input::placeholder,
+.form-editar-trago textarea::placeholder {
+  color: #9d4bff;
+}
+
+.form-editar-trago input:focus,
+.form-editar-trago textarea:focus {
+  outline: none;
+  border-color: #00faff;
+  box-shadow: 0 0 16px #00faff, inset 0 0 12px #9d4bff;
+}
+
+.form-editar-trago .error {
+  color: #ff4d6d;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ff4d6d;
+  text-align: center;
+}
+
+.form-editar-trago button {
+  padding: 16px 26px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(90deg, #00faff, #9d4bff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 6px #00faff;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-editar-trago button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px #00faff, 0 0 32px #9d4bff inset;
+}
+
+.form-editar-trago .cancelar-btn {
+  background: rgba(255, 77, 109, 0.8);
+  text-shadow: 0 0 4px #ff4d6d;
+}
+
+.form-editar-trago .cancelar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #ff4d6d, 0 0 24px #ff4d6d inset;
+}
+
+/* ==========================================
+   Preview
+========================================== */
+.editar-preview-wrapper {
+  flex: 1 1 300px;
+  background: rgba(10,10,25,0.9);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(150,0,255,0.25);
+  box-shadow: 0 0 20px #9d4bff, inset 0 0 16px #00faff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.editar-preview-wrapper h3 {
+  color: #00faff;
+  text-shadow: 0 0 8px #00faff, 0 0 16px #9d4bff;
+}
+
+.editar-preview-wrapper img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(150,0,255,0.3);
+  box-shadow: 0 0 14px #00faff, 0 0 18px #9d4bff inset;
+}
+
+/* ==========================================
+   Paginación
+========================================== */
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* alineado a la izquierda */
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(130,0,255,0.2);
+  color: #c7eaff;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00faff;
+  transition: all 0.3s ease;
+}
+
+.pagination button.active {
+  background: linear-gradient(90deg, #00faff, #9d4bff);
+  color: #fff;
+  box-shadow: 0 0 14px #00faff, 0 0 20px #9d4bff inset;
+}
+
+.pagination button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px #00faff, 0 0 16px #9d4bff inset;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+@media (max-width: 1024px) {
+  .editar-form-preview-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .editar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .editar-preview-wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .editar-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .editar-filtro input {
+    width: 100%;
+  }
+}

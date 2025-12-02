@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "nombre": "Neon Mojito",
+    "precio": 1800,
+    "tematica": "neon",
+    "img": "/images/neon-mojito.jpg",
+    "descripcion": "Menta fresca con glow ácido.",
+    "ingredientes": ["Ron blanco", "Menta", "Azúcar", "Jugo de lima", "Soda Glow"]
+  },
+  {
+    "id": 2,
+    "nombre": "Electric Sunset",
+    "precio": 2200,
+    "tematica": "futurista",
+    "img": "/images/electric-sunset.jpg",
+    "descripcion": "Vodka, naranja y un toque eléctrico.",
+    "ingredientes": ["Vodka", "Jugo de naranja", "Granadina", "Hielo"]
+  },
+  {
+    "id": 3,
+    "nombre": "Vaporwave Tonic",
+    "precio": 1700,
+    "tematica": "neon",
+    "img": "/images/vaporwave-tonic.jpg",
+    "descripcion": "Tónica retro con vibes ochenteras.",
+    "ingredientes": ["Gin", "Tónica", "Lima", "Hielo"]
+  },
+  {
+    "id": 4,
+    "nombre": "Bloody Byte",
+    "precio": 2400,
+    "tematica": "futurista",
+    "img": "/images/bloody-byte.jpg",
+    "descripcion": "Un clásico con estética cyberpunk.",
+    "ingredientes": ["Vodka", "Tomate", "Pimienta", "Sal", "Salsa inglesa"]
+  },
+  {
+    "id": 5,
+    "nombre": "Cyber Daiquiri",
+    "precio": 2100,
+    "tematica": "dulce",
+    "img": "/images/cyber-daiquiri.jpg",
+    "descripcion": "Frutal, dulce y con glow azul.",
+    "ingredientes": ["Ron", "Frutilla", "Azúcar", "Hielo"]
+  },
+  {
+    "id": 6,
+    "nombre": "Tropical Nebula",
+    "precio": 2600,
+    "tematica": "tropical",
+    "img": "/images/tropical-nebula.jpg",
+    "descripcion": "Piña, mango y una explosión galáctica.",
+    "ingredientes": ["Ron", "Piña", "Mango", "Syrup", "Hielo"]
+  },
+  {
+    "id": 7,
+    "nombre": "Blue Quantum",
+    "precio": 2300,
+    "tematica": "futurista",
+    "img": "/images/blue-quantum.jpg",
+    "descripcion": "Misterioso y brillante.",
+    "ingredientes": ["Vodka", "Curazao azul", "Lima"]
+  },
+  {
+    "id": 8,
+    "nombre": "Old Fashioned",
+    "precio": 2500,
+    "tematica": "clasico",
+    "img": "/images/old-fashioned.jpg",
+    "descripcion": "Whisky, azúcar y bitter.",
+    "ingredientes": ["Whisky", "Azúcar", "Bitter"]
+  },
+  {
+    "id": 9,
+    "nombre": "Cosmopolitan",
+    "precio": 2300,
+    "tematica": "clasico",
+    "img": "/images/cosmo.jpg",
+    "descripcion": "Elegante y frutado.",
+    "ingredientes": ["Vodka", "Cranberry", "Lima"]
+  },
+  {
+    "id": 10,
+    "nombre": "Tiki Dragon",
+    "precio": 2800,
+    "tematica": "tropical",
+    "img": "/images/tiki-dragon.jpg",
+    "descripcion": "Ron, frutas y sabor tribal.",
+    "ingredientes": ["Ron oscuro", "Piña", "Maracuyá"]
+  },
+  {
+    "id": 11,
+    "nombre": "Blackout Storm",
+    "precio": 2900,
+    "tematica": "fuerte",
+    "img": "/images/blackout.jpg",
+    "descripcion": "Oscuro, intenso y potente.",
+    "ingredientes": ["Whisky", "Café", "Licor oscuro"]
+  },
+  {
+    "id": 12,
+    "nombre": "Sugar Galaxy",
+    "precio": 2000,
+    "tematica": "dulce",
+    "img": "/images/sugar-galaxy.jpg",
+    "descripcion": "Perfecto para amantes del dulce.",
+    "ingredientes": ["Vodka vainilla", "Azúcar", "Crema"]
+  }
+]

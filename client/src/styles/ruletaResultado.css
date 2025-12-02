@@ -1,0 +1,86 @@
+.ruleta-resultado {
+  text-align: center;
+  background: radial-gradient(circle at center, #0a0a15, #05050a);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #ff2bd7, 0 0 35px #08f7fe inset;
+  color: #ffffff;
+  max-width: 420px;
+  margin: 20px auto;
+  font-family: 'Orbitron', sans-serif;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.titulo-retro {
+  font-size: 22px;
+  color: #08f7fe;
+  text-shadow: 0 0 8px #08f7fe, 0 0 16px #ff2bd7;
+  margin-bottom: 12px;
+}
+
+.resultado-nombre {
+  font-size: 32px;
+  color: #ff2bd7;
+  text-shadow: 0 0 10px #ff2bd7, 0 0 20px #08f7fe;
+  margin: 10px 0;
+}
+
+.resultado-desc {
+  font-size: 16px;
+  color: #ffffffaa;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px #08f7fe;
+}
+
+/* Botones */
+.resultado-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-retro {
+  padding: 10px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s;
+  text-shadow: 0 0 6px #08f7fe;
+}
+
+/* Botón sólido */
+.btn-retro.solid {
+  color: #ff2bd7;
+  background: linear-gradient(135deg, #ff2bd7, #08f7fe);
+  border: 2px solid #ff2bd7;
+  box-shadow: 0 0 12px #ff2bd7, 0 0 24px #08f7fe inset;
+}
+
+.btn-retro.solid:hover {
+  color: #08f7fe;
+  box-shadow: 0 0 18px #ff2bd7, 0 0 28px #08f7fe inset;
+  transform: scale(1.05);
+}
+
+/* Botón outline */
+.btn-retro.outline {
+  background: transparent;
+  color: #08f7fe;
+  border: 2px solid #08f7fe;
+}
+
+.btn-retro.outline:hover {
+  color: #ff2bd7;
+  border-color: #ff2bd7;
+  box-shadow: 0 0 14px #ff2bd7, 0 0 20px #08f7fe inset;
+  transform: scale(1.05);
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

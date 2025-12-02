@@ -1,0 +1,216 @@
+/* ==========================================================================
+   RULETA — S Y N T H W A V E   N E O N   A R C A D E
+   ========================================================================== */
+
+.ruleta-wrapper {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  perspective: 1000px; /* para darle sensación 3D */
+}
+
+/* ---------------------------------------------------------
+   HALO DETRÁS
+--------------------------------------------------------- */
+.ruleta-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 440px;
+  height: 440px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    #ff2bd766 0%,
+    #08f7fe44 40%,
+    transparent 80%
+  );
+  filter: blur(45px);
+  z-index: -2;
+  animation: haloPulse 4s infinite ease-in-out;
+}
+
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* ---------------------------------------------------------
+   ANILLO EXTERIOR
+--------------------------------------------------------- */
+.ruleta-outer-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #08f7feaa;
+  box-shadow:
+    0 0 25px #08f7fecc,
+    inset 0 0 30px #ff2bd777;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   RING RGB ANIMADO
+--------------------------------------------------------- */
+.ruleta-rgb-ring {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  animation: rgbSpin 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rgbSpin {
+  0% {
+    box-shadow: 0 0 14px #ff2bd7, inset 0 0 20px #ff2bd7;
+    border-color: #ff2bd7;
+  }
+  33% {
+    box-shadow: 0 0 18px #08f7fe, inset 0 0 24px #08f7fe;
+    border-color: #08f7fe;
+  }
+  66% {
+    box-shadow: 0 0 18px #d400ff, inset 0 0 24px #d400ff;
+    border-color: #d400ff;
+  }
+  100% { transform: rotate(360deg); }
+}
+
+/* ---------------------------------------------------------
+   RULETA PRINCIPAL
+--------------------------------------------------------- */
+.ruleta-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+}
+
+.ruleta {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0a0a15, #05050a);
+  position: relative;
+  transition: transform 4.5s cubic-bezier(0.08, 0.8, 0.22, 1);
+  overflow: hidden;
+  box-shadow: 0 0 20px #08f7feaa inset, 0 0 15px #ff2bd7;
+}
+
+/* ---------------------------------------------------------
+   ITEMS DE LA RULETA
+--------------------------------------------------------- */
+.ruleta-item {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: left bottom;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ruleta-item span {
+  rotate: 90deg;
+  padding-right: 12px;
+  font-family: "Orbitron", sans-serif;
+  color: #ffffffdd;
+  text-shadow:
+    0 0 8px #ff2bd7,
+    0 0 15px #08f7feaa;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+/* ---------------------------------------------------------
+   DISCO INTERIOR
+--------------------------------------------------------- */
+.ruleta-inner-disc {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff2bd788, #05050a);
+  box-shadow:
+    inset 0 0 22px #ff2bd788,
+    0 0 22px #08f7feaa;
+  z-index: 2;
+}
+
+/* ---------------------------------------------------------
+   PUNTERO HUD
+--------------------------------------------------------- */
+.ruleta-puntero {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 8px #ff2bd7);
+  z-index: 5;
+}
+
+/* ===========================
+   RUEDA LEDs DINÁMICOS
+   =========================== */
+.ruleta-led {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff2bd7;
+  box-shadow: 0 0 12px #ff2bd7aa;
+  top: 50%;
+  left: 50%;
+  transform-origin: -150px 0;
+  opacity: 0.3;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.ruleta-led.active {
+  animation: ledBlink 1s infinite alternate;
+}
+
+@keyframes ledBlink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+
+/* ===========================
+   CHISPA NEON AL DETENERSE
+   =========================== */
+.ruleta-spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, #ff2bd7ff 0%, #08f7fe00 70%);
+  filter: blur(12px);
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 3;
+}
+
+.ruleta-spark.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+  animation: sparkFade 0.8s ease-out;
+}
+
+@keyframes sparkFade {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}

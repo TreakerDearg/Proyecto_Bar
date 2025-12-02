@@ -1,0 +1,98 @@
+/* ================================
+   PreviewCard — Estilo Profesional
+================================= */
+.preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(10,10,25,0.95), rgba(20,20,40,0.95));
+  border-radius: 15px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 0 12px #00faff, 0 0 18px #9d4bff inset;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 18px #00faff, 0 0 24px #9d4bff inset;
+}
+
+.preview-img-wrapper {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20,20,40,0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(150,0,255,0.3);
+  box-shadow: 0 0 10px #00faff inset;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.preview-card:hover .preview-img {
+  transform: scale(1.05);
+}
+
+.placeholder-img {
+  width: 80%;
+  height: 80%;
+  background: rgba(50,50,70,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9d4bff;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-shadow: 0 0 4px #00faff;
+}
+
+.preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trago-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00faff;
+  text-shadow: 0 0 6px #00faff, 0 0 12px #9d4bff;
+}
+
+.trago-precio,
+.trago-ingredientes,
+.trago-tema {
+  font-size: 0.9rem;
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .preview-card {
+    width: 100%;
+    flex-direction: row;
+    height: 120px;
+  }
+
+  .preview-img-wrapper {
+    width: 120px;
+    height: 100%;
+  }
+
+  .preview-info {
+    padding-left: 10px;
+    justify-content: center;
+  }
+}

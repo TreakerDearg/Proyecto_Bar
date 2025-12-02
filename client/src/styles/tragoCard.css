@@ -1,0 +1,337 @@
+/* ===========================================================
+   CARD BASE (Glassmorph + Glow cyberpunk)
+=========================================================== */
+
+.digital-card {
+  position: relative;
+  width: 300px;
+  height: 460px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+
+  background: rgba(20, 15, 35, 0.45);
+  border: 1px solid rgba(150, 90, 255, 0.38);
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 0 25px rgba(120, 60, 255, 0.35),
+    0 0 35px rgba(0, 180, 255, 0.28) inset,
+    0 0 70px rgba(120, 60, 255, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.digital-card:hover {
+  transform: scale(1.045);
+  box-shadow: 
+    0 0 50px rgba(150, 90, 255, 0.75),
+    0 0 70px rgba(0, 180, 255, 0.4) inset,
+    0 0 120px rgba(150, 90, 255, 0.5);
+}
+
+
+
+/* ===========================================================
+   VOLUMETRIC FOG (2 capas mejoradas)
+=========================================================== */
+
+.volumetric-fog {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fog-layer {
+  position: absolute;
+  width: 180%;
+  height: 180%;
+
+  background: radial-gradient(
+    circle,
+    rgba(150, 90, 255, 0.22),
+    transparent 70%
+  );
+
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  animation: fogMove 26s ease-in-out infinite;
+}
+
+.fog-layer.blue {
+  background: radial-gradient(
+    circle,
+    rgba(0, 180, 255, 0.2),
+    transparent 75%
+  );
+
+  opacity: 0.35;
+  animation-duration: 34s;
+}
+
+@keyframes fogMove {
+  0% { transform: translate(-20%, -10%) scale(1.1); }
+  50% { transform: translate(25%, 15%) scale(1.25); }
+  100% { transform: translate(-20%, -10%) scale(1.1); }
+}
+
+
+/* ===========================================================
+   MATRIX CODE RAIN (fase 1)
+=========================================================== */
+
+.matrix-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.matrix-rain canvas {
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.4);
+}
+
+
+/* ===========================================================
+   CRACK LAYER — fracturas digitales (fase 2)
+=========================================================== */
+
+.crack-layer {
+  position: absolute;
+  inset: 0;
+
+  background: url("https://i.imgur.com/qe0D9vR.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+
+  z-index: 3;
+  animation: crackAppear 0.7s ease forwards;
+}
+
+@keyframes crackAppear {
+  0% { opacity: 0; filter: blur(10px); }
+  100% { opacity: 0.35; filter: blur(0); }
+}
+
+
+/* ===========================================================
+   PIXEL SCRAMBLE (fase 3)
+=========================================================== */
+
+.pixel-scramble {
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.07) 0,
+    rgba(255,255,255,0.07) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+
+  opacity: 0;
+  z-index: 4;
+  animation: scramble 0.8s ease forwards;
+}
+
+@keyframes scramble {
+  0% { opacity: 0; transform: scale(1); filter: blur(0); }
+  70% { opacity: 0.7; transform: scale(1.12); filter: blur(3px); }
+  100% { opacity: 0; transform: scale(1); filter: blur(0); }
+}
+
+
+/* ===========================================================
+   LIGHT SWEEP (fase 4)
+=========================================================== */
+
+.light-sweep {
+  position: absolute;
+  inset: 0;
+  
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.75) 50%,
+    transparent 100%
+  );
+
+  opacity: 0;
+  mix-blend-mode: overlay;
+  z-index: 5;
+  animation: lightSweep 1.1s ease-out forwards;
+}
+
+@keyframes lightSweep {
+  0% { transform: translateX(-140%) rotate(10deg); opacity: 0; }
+  40% { opacity: 0.8; }
+  100% { transform: translateX(140%) rotate(10deg); opacity: 0; }
+}
+
+
+/* ===========================================================
+   IMAGE REVEAL (fase 5)
+=========================================================== */
+
+.trago-img {
+  position: absolute;
+  width: 88%;
+  height: auto;
+  max-height: 58%;
+  left: 50%;
+  top: 19%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 20px rgba(120, 60, 255, 0.6),
+    0 0 25px rgba(0, 180, 255, 0.45);
+
+  z-index: 6;
+  opacity: 0;
+  animation: imgReveal 1s ease forwards 0.4s;
+}
+
+@keyframes imgReveal {
+  0% { opacity: 0; filter: blur(14px); transform: translateX(-50%) scale(1.1); }
+  100% { opacity: 1; filter: blur(0); transform: translateX(-50%) scale(1); }
+}
+
+
+/* ===========================================================
+   IMAGE DISSOLVE (fase 6)
+=========================================================== */
+
+.img-dissolve {
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 0,
+    rgba(255,255,255,0.06) 3px,
+    transparent 3px,
+    transparent 8px
+  );
+
+  z-index: 7;
+  animation: dissolve 0.75s ease forwards;
+}
+
+@keyframes dissolve {
+  0% { opacity: 1; filter: blur(0); transform: scale(1); }
+  100% { opacity: 0; filter: blur(10px); transform: scale(1.18); }
+}
+
+
+/* ===========================================================
+   INFO PANEL (fase 7)
+=========================================================== */
+
+.info-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  padding: 22px;
+
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(120, 60, 255, 0.35);
+
+  text-align: center;
+
+  z-index: 10;
+  opacity: 0;
+  animation: showInfo 0.7s ease forwards 1.1s;
+}
+
+@keyframes showInfo {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.trago-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  color: white;
+  text-shadow: 0 0 12px #b08cff, 0 0 16px #00d0ff;
+  margin-bottom: 10px;
+}
+
+.ingredientes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredientes-list li {
+  font-family: "Share Tech Mono", monospace;
+  color: #e9e9e9;
+  opacity: 0.95;
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.confirm-box {
+  background: #0f0f17;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 15px #8400ff;
+  animation: pop-in 0.25s ease;
+}
+
+@keyframes pop-in {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.confirm-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm-buttons button {
+  width: 45%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-si {
+  background: #7d00ff;
+  color: white;
+}
+
+.btn-no {
+  background: #333;
+  color: white;
+}

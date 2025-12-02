@@ -1,0 +1,54 @@
+.ruleta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Botón principal — neón sólido */
+.btn-ruleta {
+  padding: 12px 28px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff2bd7;
+  background: linear-gradient(135deg, #ff2bd7 0%, #08f7fe 100%);
+  border: 2px solid #ff2bd7;
+  border-radius: 8px;
+  cursor: pointer;
+  text-shadow: 0 0 6px #ff2bd7, 0 0 12px #08f7fe;
+  box-shadow: 0 0 12px #ff2bd7, 0 0 24px #08f7fe inset;
+  transition: 0.3s ease, transform 0.2s;
+}
+
+.btn-ruleta:hover {
+  color: #08f7fe;
+  box-shadow:
+    0 0 16px #ff2bd7,
+    0 0 28px #08f7fe,
+    inset 0 0 20px #ff2bd7;
+  transform: scale(1.05);
+}
+
+/* Estado deshabilitado */
+.btn-ruleta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: 0 0 6px #666;
+  color: #ccc;
+}
+
+/* Botón outline — reiniciar */
+.btn-ruleta.outline {
+  background: transparent;
+  color: #08f7fe;
+  border: 2px solid #08f7fe;
+  text-shadow: 0 0 6px #08f7fe;
+}
+
+.btn-ruleta.outline:hover {
+  color: #ff2bd7;
+  border-color: #ff2bd7;
+  box-shadow: 0 0 12px #ff2bd7, 0 0 18px #08f7fe inset;
+  transform: scale(1.05);
+}

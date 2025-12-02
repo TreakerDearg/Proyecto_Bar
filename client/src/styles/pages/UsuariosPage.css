@@ -1,0 +1,134 @@
+/* ================================
+   Usuarios — Página
+================================= */
+.usuarios-container {
+  padding: 60px 20px 40px 340px; /* espacio para sidebar */
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0a25, #01010b);
+  color: #c7eaff;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+  transition: padding-left 0.3s ease;
+}
+
+/* ================================
+   Mensajes
+================================= */
+.error-msg {
+  color: #ff4d6d;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 4px #ff4d6d;
+}
+
+.no-usuarios-msg {
+  color: #ff4d6d;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 4px #ff4d6d;
+  font-size: 1.2rem;
+}
+
+/* ================================
+   Lista de usuarios
+================================= */
+.usuarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* espacio entre filas */
+}
+
+/* ================================
+   Cada tarjeta de usuario
+================================= */
+.usuario-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 25, 0.9);
+  border-radius: 12px;
+  padding: 15px 20px;
+  border: 1px solid rgba(150, 0, 255, 0.25);
+  box-shadow: 0 0 16px #9d4bff, inset 0 0 12px #00faff;
+  gap: 12px; /* espacio entre info y acciones */
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.usuario-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #00faff, inset 0 0 16px #9d4bff;
+}
+
+/* ================================
+   Información del usuario
+================================= */
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.usuario-nombre {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #00faff;
+  text-shadow: 0 0 6px #00faff, 0 0 12px #9d4bff;
+}
+
+.usuario-email {
+  font-size: 0.95rem;
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+}
+
+.usuario-rol {
+  font-size: 0.9rem;
+  color: #d5baff;
+  text-shadow: 0 0 3px #9d4bff;
+}
+
+/* ================================
+   Acciones del usuario
+================================= */
+.usuario-actions button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #ff4d6d, #ff1a1a);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 6px #ff4d6d;
+  transition: all 0.3s ease;
+}
+
+.usuario-actions button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px #ff4d6d, 0 0 16px #ff1a1a inset;
+}
+
+/* ================================
+   Responsive
+================================= */
+@media (max-width: 1024px) {
+  .usuarios-container {
+    padding-left: 20px; /* ajustar espacio para sidebar */
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .usuario-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .usuario-actions {
+    align-self: flex-end;
+  }
+}

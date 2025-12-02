@@ -1,0 +1,164 @@
+/* ================================
+   Borrar Tragos — Página
+================================= */
+.borrar-tragos-container {
+  padding: 60px 20px 40px 150px; /* <- ESPACIO IZQUIERDO: ajusta el '340px' para mover todo a la izquierda o derecha */
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0a25, #01010b);
+  color: #c7eaff;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+  transition: padding-left 0.3s ease;
+}
+
+/* Lista de tragos */
+.borrar-tragos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* <- ESPACIO ENTRE FILAS: ajusta para separar más o menos los elementos */
+}
+
+/* Cada item de trago */
+.borrar-trago-item {
+  display: flex;
+  justify-content: flex-start; /* <- Para alinear todo hacia la izquierda */
+  align-items: center;
+  background: rgba(10, 10, 25, 0.9);
+  border-radius: 12px;
+  padding: 12px 18px;
+  border: 1px solid rgba(150, 0, 255, 0.25);
+  box-shadow: 0 0 16px #9d4bff, inset 0 0 12px #00faff;
+  gap: 15px; /* <- ESPACIO ENTRE IMAGEN, INFO Y BOTÓN */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.borrar-trago-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #00faff, inset 0 0 16px #9d4bff;
+}
+
+/* Preview de imagen */
+.trago-img-preview {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 25px; /* <- Ajusta este valor para acercar o separar la imagen de la info */
+}
+
+.trago-img-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info del trago */
+.borrar-trago-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1; /* <- Hace que la info ocupe todo el espacio disponible hacia la izquierda */
+}
+
+/* Nombre y precio */
+.trago-nombre {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #00faff;
+  text-shadow: 0 0 6px #00faff, 0 0 12px #9d4bff;
+}
+
+.trago-precio,
+.trago-tema {
+  font-size: 0.95rem;
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+}
+
+/* Botón de eliminar */
+.borrar-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #ff4d6d, #ff1a1a);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 6px #ff4d6d;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* <- Evita que el botón se comprima */
+}
+
+.borrar-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px #ff4d6d, 0 0 16px #ff1a1a inset;
+}
+
+/* Buscador */
+.search-input {
+  width: 100%;
+  max-width: 480px; /* <- Ajusta el ancho del buscador */
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,150,255,0.3);
+  background: rgba(20,20,40,0.85);
+  color: #c7eaff;
+  font-size: 1rem;
+  text-shadow: 0 0 4px #00faff;
+  margin-bottom: 20px;
+}
+
+/* Paginación */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(130,0,255,0.2);
+  color: #c7eaff;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00faff;
+  transition: all 0.3s ease;
+}
+
+.pagination button.active {
+  background: linear-gradient(90deg, #00faff, #9d4bff);
+  color: #fff;
+  box-shadow: 0 0 12px #00faff, 0 0 18px #9d4bff inset;
+}
+
+.pagination button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00faff, 0 0 14px #9d4bff inset;
+}
+
+/* ================================
+   Responsive
+================================= */
+@media (max-width: 768px) {
+  .borrar-trago-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .borrar-btn {
+    align-self: flex-end;
+  }
+
+  .search-input {
+    max-width: 100%;
+  }
+}

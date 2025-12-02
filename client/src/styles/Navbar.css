@@ -1,0 +1,265 @@
+/* ============================================
+   NAVBAR — PANEL DE AUTO RETROFUTURISTA (Glasmorphismo)
+=============================================== */
+.navbar-container {
+  width: 100%;
+  height: 70px;
+  padding: 0 0px; /* Ajusta el padding para mover todo a la izquierda */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  backdrop-filter: blur(14px) saturate(180%);
+  background: rgba(10, 10, 25, 0.4); /* efecto glass */
+  border-bottom: 2px solid rgba(0, 255, 255, 0.15);
+  box-shadow:
+    0 0 16px rgba(0, 255, 255, 0.2),
+    inset 0 0 18px rgba(255, 0, 230, 0.1);
+
+  overflow: visible;
+  transition: padding 0.3s ease;
+}
+
+/* ==============================
+   LOGO + HUD
+================================= */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0px; /* <- Ajusta este valor para mover el logo a la izquierda */
+}
+
+.navbar-icon {
+  width: 48px;
+  height: 26px;
+  filter: drop-shadow(0 0 6px #00faff);
+}
+
+.navbar-logo {
+  color: #00faff;
+  font-size: 20px;
+  font-family: "Orbitron", sans-serif;
+  text-decoration: none;
+  text-shadow:
+    0 0 8px #00faff,
+    0 0 14px rgba(255, 0, 230, 0.8);
+  transition: 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #ff00e6;
+  text-shadow:
+    0 0 10px #ff00e6,
+    0 0 20px #ff00e6;
+}
+
+/* ==============================
+   LINKS — ESTILO PANTALLA DIGITAL
+================================= */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin-left: -10px; /* <- Ajusta este valor para mover los links a la izquierda */
+}
+
+.navbar-links li a,
+.navbar-links li.admin-btn {
+  font-family: "Orbitron", sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  color: #c7eaff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+/* MARCADOR ESTILO PANEL */
+.navbar-links li a::after,
+.navbar-links li.admin-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00faff, #ff00e6);
+  transition: 0.3s ease;
+  opacity: 0.7;
+}
+
+.navbar-links li a:hover::after,
+.navbar-links li.admin-btn:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navbar-links li a:hover,
+.navbar-links li.admin-btn:hover {
+  color: #00faff;
+  text-shadow:
+    0 0 8px #00faff,
+    0 0 12px #ff00e6;
+}
+
+/* ==============================
+   LÍNEA NEÓN INFERIOR
+================================= */
+.navbar-neon-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff00e6, #00faff, #ff00e6);
+  opacity: 0.9;
+  box-shadow: 0 0 10px #00faff, 0 0 20px #ff00e6;
+  animation: pulseLine 3.8s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* ==============================
+   TOGGLE MOBILE (HAMBURGER)
+================================= */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #00faff;
+  cursor: pointer;
+  filter: drop-shadow(0 0 6px #00faff);
+  transition: 0.3s ease;
+}
+
+.nav-toggle:hover {
+  color: #ff00e6;
+  filter: drop-shadow(0 0 8px #ff00e6);
+}
+
+/* ==============================
+   RESPONSIVE — PANEL MÓVIL
+================================= */
+@media (max-width: 850px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 25, 0.6);
+    backdrop-filter: blur(12px) saturate(180%);
+    width: 200px;
+    padding: 16px 0;
+    gap: 16px;
+    border-left: 2px solid rgba(0, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 0, 230, 0.3);
+    transform: translateX(120%);
+    transition: 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.35),
+                0 0 35px rgba(255, 0, 230, 0.25);
+  }
+
+  .navbar-links.open {
+    transform: translateX(0);
+  }
+}
+
+/* ==============================
+   PANEL ADMIN (Glasmorphismo)
+================================= */
+.admin-panel-slide {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 90%;
+  height: 100vh;
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(14px) saturate(180%);
+  border-left: 2px solid #9d4bff;
+  padding: 25px;
+  z-index: 9999;
+  box-shadow: -4px 0 18px rgba(150, 0, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Header panel admin */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.admin-close {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.admin-close:hover {
+  color: #ff58ee;
+}
+
+.admin-links {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-links a {
+  color: #c7eaff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(130, 0, 255, 0.15);
+  border: 1px solid rgba(200, 150, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+/* Hover admin igual que los links del navbar */
+.admin-links a:hover {
+  background: rgba(150, 0, 255, 0.25);
+  color: #00faff;
+  text-shadow: 0 0 6px #00faff, 0 0 10px #ff00e6;
+  transform: translateX(6px);
+}
+
+/* ==============================
+   RESPONSIVE — PANEL ADMIN
+================================= */
+@media (max-width: 650px) {
+  .admin-panel-slide {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .admin-links a {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+}

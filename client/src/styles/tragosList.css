@@ -1,0 +1,182 @@
+/* ===========================================================
+   TRAGOS LIST — ESTILO CYBERPUNK GLASS MORADO / AZUL (MEJORADO)
+   =========================================================== */
+
+.tragos-list-wrapper {
+  width: 100%;
+  padding: 40px 0 80px;
+  animation: fadeIn 0.6s ease;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------------------------
+   HEADER
+--------------------------- */
+.tragos-list-header {
+  margin-bottom: 35px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.tragos-list-title {
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.neon-glow {
+  color: #c66bff;
+  text-shadow:
+    0 0 12px #c66bff,
+    0 0 28px #6f00ff,
+    0 0 50px rgba(0, 128, 255, 0.65);
+}
+
+.list-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.list-stats {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* ---------------------------
+   GRID PRINCIPAL (CENTRADO + 4 POR FILA)
+--------------------------- */
+
+.tragos-grid {
+  width: 100%;
+  max-width: 1300px;
+
+  display: grid;
+  /* EXACTAMENTE 4 COLUMNAS */
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  justify-items: center;
+
+  gap: 32px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* ✔ ADAPTACIÓN RESPONSIVE NATURAL */
+@media (max-width: 1200px) {
+  .tragos-grid {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .tragos-grid {
+    grid-template-columns: repeat(2, minmax(230px, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .tragos-grid {
+    grid-template-columns: repeat(1, minmax(230px, 1fr));
+  }
+}
+
+.tragos-grid-item {
+  animation: softPop 0.35s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes softPop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------------------------
+   SIN RESULTADOS
+--------------------------- */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px;
+  font-size: 1.35rem;
+  color: #ff87c9;
+  text-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
+}
+
+/* ---------------------------
+   PAGINACIÓN MEJORADA
+--------------------------- */
+.tragos-pagination {
+  width: 100%;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.pg-btn,
+.pg-num {
+  background: rgba(255, 255, 255, 0.16);
+  border: none;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 14px rgba(138, 0, 255, 0.35);
+}
+
+.pg-btn:hover,
+.pg-num:hover {
+  background: rgba(182, 55, 255, 0.33);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #9f3dff;
+}
+
+.pg-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+.pg-pages {
+  display: flex;
+  gap: 12px;
+}
+
+.pg-num.active {
+  background: linear-gradient(135deg, #9b00ff, #2500ff);
+  box-shadow: 0 0 22px #b366ff;
+  transform: scale(1.1);
+  font-weight: bold;
+}
+
+/* ---------------------------
+   ANIMACIONES GENERALES
+--------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}

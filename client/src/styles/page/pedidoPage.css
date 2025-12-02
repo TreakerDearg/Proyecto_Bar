@@ -1,0 +1,86 @@
+/* ============================================
+   ESTILOS GENERALES PARA LA PÁGINA
+   ============================================ */
+.pedido-page {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle at center, #0b0c10 0%, #020204 100%);
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+}
+
+/* Transiciones suaves entre pantallas */
+.fade-in {
+  animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   TÍTULO RETRO
+   ============================================ */
+.titulo-retro {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  color: #00eaff;
+  text-shadow: 0 0 12px #00eaff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 8px #00c8e6; }
+  to { text-shadow: 0 0 16px #00eaff; }
+}
+
+/* ============================================
+   GRID DE TRAGOS
+   ============================================ */
+.menu-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 10px;
+}
+
+.tragos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* ============================================
+   BOTÓN VOLVER
+   ============================================ */
+.btn-volver {
+  margin: 25px auto 0;
+  display: block;
+  padding: 12px 22px;
+
+  font-size: 1.1rem;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #ff4f6e;
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-volver:hover {
+  background: #ff4f6e;
+  box-shadow: 0 0 10px #ff4f6e;
+}
+
+.btn-volver:active {
+  transform: scale(0.95);
+}

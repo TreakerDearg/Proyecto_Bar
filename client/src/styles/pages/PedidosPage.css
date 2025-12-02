@@ -1,0 +1,180 @@
+/* ================================
+   Pedidos Page — Estilos
+================================= */
+.pedidos-page {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0a0a25, #01010b);
+  font-family: "Orbitron", sans-serif;
+  color: #c7eaff;
+}
+
+/* ================================
+   Contenido principal
+================================= */
+.pedidos-content {
+  flex: 1;
+  padding: 100px 40px 40px 360px; /* Ajusta para sidebar */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+  transition: padding-left 0.3s ease;
+}
+
+/* Ajuste responsive */
+@media (max-width: 1024px) {
+  .pedidos-content {
+    padding-left: 20px;
+    padding-top: 140px;
+  }
+}
+
+/* Título */
+.pedidos-content h1 {
+  color: #00faff;
+  text-shadow: 0 0 8px #00faff, 0 0 14px #9d4bff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* ================================
+   Buscador
+================================= */
+.pedidos-search {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.pedidos-search input {
+  width: 320px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(150, 0, 255, 0.3);
+  background: rgba(20, 20, 40, 0.85);
+  color: #c7eaff;
+  text-shadow: 0 0 4px #00faff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.pedidos-search input::placeholder {
+  color: #9d4bff;
+}
+
+.pedidos-search input:focus {
+  outline: none;
+  border-color: #00faff;
+  box-shadow: 0 0 10px #00faff, inset 0 0 6px #9d4bff;
+}
+
+/* ================================
+   Mensaje de no pedidos
+================================= */
+.no-pedidos-msg {
+  color: #ff4d6d;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 4px #ff4d6d;
+  font-size: 1.2rem;
+}
+
+/* ================================
+   Lista de pedidos
+================================= */
+.pedidos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Ajusta alineación horizontal */
+}
+
+/* Cada tarjeta de pedido */
+.pedido-item {
+  background: rgba(10, 10, 25, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(150, 0, 255, 0.25);
+  box-shadow: 0 0 16px #9d4bff, inset 0 0 12px #00faff;
+  flex: 1 1 220px; /* Mínimo ancho y crece */
+  max-width: 280px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pedido-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 24px #00faff, inset 0 0 16px #9d4bff;
+}
+
+/* Información dentro de la tarjeta */
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pedido-usuario,
+.pedido-trago,
+.pedido-cantidad {
+  font-size: 1rem;
+}
+
+.pedido-usuario strong,
+.pedido-trago strong,
+.pedido-cantidad strong {
+  color: #00faff;
+  text-shadow: 0 0 6px #00faff, 0 0 12px #9d4bff;
+}
+
+/* ================================
+   Paginación
+================================= */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(130, 0, 255, 0.2);
+  color: #c7eaff;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 4px #00faff;
+  transition: all 0.3s ease;
+}
+
+.pagination button.active {
+  background: linear-gradient(90deg, #00faff, #9d4bff);
+  color: #fff;
+  box-shadow: 0 0 12px #00faff, 0 0 18px #9d4bff inset;
+}
+
+.pagination button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00faff, 0 0 14px #9d4bff inset;
+}
+
+/* ================================
+   Responsive
+================================= */
+@media (max-width: 768px) {
+  .pedidos-list {
+    justify-content: center;
+  }
+
+  .pedido-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .pedidos-search input {
+    width: 100%;
+  }
+}

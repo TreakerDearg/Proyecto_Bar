@@ -1,0 +1,165 @@
+/* ===========================================================
+   PAGE BASE
+   =========================================================== */
+.products-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #fff;
+
+  background: radial-gradient(circle at center, #0a0612 0%, #000 100%);
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Glow ambiental suave */
+  box-shadow: inset 0 0 80px rgba(150, 0, 255, 0.25);
+}
+
+/* ===========================================================
+   HEADER
+   =========================================================== */
+.products-header {
+  text-align: center;
+  margin-bottom: 35px;
+  animation: fadeSlideDown 1s ease-out;
+}
+
+.products-title {
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #c44bff, #9600ff, #d26dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(150, 0, 255, 0.6);
+}
+
+.products-sub {
+  opacity: 0.85;
+  margin-top: 12px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #d9baff;
+}
+
+/* ===========================================================
+   LOADER
+   =========================================================== */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.loader {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #ae00ff;
+  animation: spin 0.9s linear infinite, loaderGlow 2s infinite alternate;
+}
+
+@keyframes loaderGlow {
+  0% { box-shadow: 0 0 6px #9600ff; }
+  100% { box-shadow: 0 0 18px #9600ff; }
+}
+
+/* ===========================================================
+   ERROR MESSAGE
+   =========================================================== */
+.error-message {
+  text-align: center;
+  color: #ff4081;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  text-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+}
+
+/* ===========================================================
+   FILTERS PANEL
+   =========================================================== */
+.filters-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 30px 0;
+  justify-content: center;
+
+  padding: 20px 25px;
+  border-radius: 20px;
+
+  /* vidrio futurista */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  animation: fadeIn 1.2s ease;
+}
+
+.input-filter,
+.select-filter {
+  padding: 12px 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #29a8fc;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(150, 0, 255, 0.4);
+  min-width: 180px;
+  transition: 0.3s ease;
+}
+
+.input-filter:hover,
+.select-filter:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+.input-filter:focus,
+.select-filter:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 18px #ae00ff;
+}
+
+/* small screens */
+@media (max-width: 550px) {
+  .input-filter,
+  .select-filter {
+    min-width: 100%;
+  }
+}
+
+/* ===========================================================
+   LOADING TEXT
+   =========================================================== */
+.loading-text {
+  text-align: center;
+  margin-top: 35px;
+  opacity: 0.7;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* ===========================================================
+   ANIMATIONS
+   =========================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
