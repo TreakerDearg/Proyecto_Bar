@@ -79,9 +79,38 @@ const routes = [
   { path: "/api/pedidos", route: pedidosRoutes },
 ];
 
+// Cargar rutas y log
 routes.forEach(r => {
   app.use(r.path, r.route);
   console.log(`✅ Ruta cargada: ${r.path}`);
+});
+
+// ========================================
+//  HEALTH CHECK + LISTADO DE ENDPOINTS
+// ========================================
+app.get("/api", (req, res) => {
+  const routeDetails = routes
+    .map(r => {
+      const stack = r.route.stack
+        .filter(layer => layer.route)
+        .map(layer => {
+          const methods = Object.keys(layer.route.methods)
+            .map(m => m.toUpperCase());
+          return {
+            path: `${r.path}${layer.route.path}`,
+            methods,
+          };
+        });
+      return stack;
+    })
+    .flat();
+
+  res.status(200).json({
+    success: true,
+    message: "🚀 Backend activo",
+    routesAvailable: routeDetails,
+    timestamp: new Date(),
+  });
 });
 
 // ========================================
@@ -105,7 +134,6 @@ async function startServer() {
     app.listen(PORT, () => {
       console.log(`🚀 Servidor corriendo en puerto ${PORT} (${nodeEnv})`);
     });
-
   } catch (err) {
     console.error("❌ Error al conectar con MongoDB:");
     console.error(err.message);
