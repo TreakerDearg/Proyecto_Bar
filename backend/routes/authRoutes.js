@@ -5,7 +5,7 @@ import {
   loginUser,
   getProfile,
   logoutUser
-} from "../controllers/authController.js";
+} from "../controllers/authcontroller.js";
 
 import { protect, soloAdmin } from "../middlewares/authMiddleware.js";
 
